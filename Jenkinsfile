@@ -3,6 +3,9 @@ pipeline {
     tools {
         maven 'Maven3.8.1'
     }
+    options {
+        buildDiscarder logRotator(daysToKeepStr: '5', numToKeepStr: '7')
+    }
     stages{
         stage("Build"){
             steps{
