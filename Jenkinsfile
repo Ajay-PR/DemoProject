@@ -13,7 +13,7 @@ pipeline {
             steps{
                 script{
                     def mavenPom = readMavenPom file: 'pom.xml'
-                    def nexusRepoName = mavenpom.version.endsWith("SNAPSHOT") ? "simpleapp-snapshot" : "simpleapp-release"
+                    def nexusRepoName = mavenPom.version.endsWith("SNAPSHOT") ? "simpleapp-snapshot" : "simpleapp-release"
                     nexusArtifactUploader artifacts: [
                         [
                             artifactId: 'simple-app', 
